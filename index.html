@@ -1162,43 +1162,96 @@ Computer Science Engineering student at ENISO, passionate about Artificial Intel
         </div>
     </section>
 
-    <!-- Certifications Section -->
-    <section class="certifications" id="certifications">
-        <h2 class="section-title">My Certifications</h2>
-        
-        <div class="cert-grid">
-            <div class="cert-card">
-                <h3>Fundamentals of Deep Learning</h3>
-                <p>Deep learning foundations: neural networks, CNNs, training workflow, and practical applications.</p>
-                <div class="cert-issuer">
-                    <img src="https://learn.nvidia.com/certificates?id" alt="NVIDIA">
-                    <span>NVIDIA</span>
-                </div>
-*
+   <!-- Certifications Section -->
+<section class="certifications" id="certifications">
+    <h2 class="section-title">My Certifications</h2>
+    
+    <div class="cert-grid">
+        <div class="cert-card">
+            <h3>Fundamentals of Deep Learning</h3>
+            <p>Deep learning foundations: neural networks, CNNs, training workflow, and practical applications.</p>
+            <div class="cert-issuer">
+                <img src="https://via.placeholder.com/40x40?text=N" alt="NVIDIA">
+                <span>NVIDIA</span>
             </div>
-
-            <div class="cert-card">
-                <h3>Building Transformer-Based NLP Applications</h3>
-                <p>Transformers and modern NLP: tokenization, embeddings, attention, and deployment-ready pipelines.</p>
-                <div class="cert-issuer">
-                    <img src="https://learn.nvidia.com/certificates?1tO0Ys3ITkGJkXM3sgBKrQ" alt="NVIDIA">
-                    <span>NVIDIA</span>
-                </div>
- 
-            </div>
-
-            <div class="cert-card">
-                <h3>Supervised Machine Learning: Regression & Classification</h3>
-                <p>Core supervised learning concepts, evaluation, overfitting/regularization, and practical modeling.</p>
-                <div class="cert-issuer">
-                    <img src="https://coursera.org/share/f87f859b604a0092d9315ad8ca72f8e5" alt="Coursera">
-                    <span>Coursera</span>
-                </div>
-
+            <div class="thumb-grid">
+                <img class="thumb" src="assets/certifications/2.png" alt="Certificate image"
+                     onclick="openLightbox(this.src)"
+                     onerror="this.onerror=null;this.src='https://via.placeholder.com/320x240?text=Add+certificate';">
             </div>
         </div>
-    </section>
 
+        <div class="cert-card">
+            <h3>Building Transformer-Based NLP Applications</h3>
+            <p>Transformers and modern NLP: tokenization, embeddings, attention, and deployment-ready pipelines.</p>
+            <div class="cert-issuer">
+                <img src="https://via.placeholder.com/40x40?text=N" alt="NVIDIA">
+                <span>NVIDIA</span>
+            </div>
+            <div class="thumb-grid">
+                <img class="thumb" src="assets/certifications/3.png" alt="Certificate image"
+                     onclick="openLightbox(this.src)"
+                     onerror="this.onerror=null;this.src='https://via.placeholder.com/320x240?text=Add+certificate';">
+            </div>
+        </div>
+
+        <div class="cert-card">
+            <h3>Supervised Machine Learning: Regression & Classification</h3>
+            <p>Core supervised learning concepts, evaluation, overfitting/regularization, and practical modeling.</p>
+            <div class="cert-issuer">
+                <img src="https://via.placeholder.com/40x40?text=C" alt="Coursera">
+                <span>Coursera</span>
+            </div>
+            <div class="thumb-grid">
+                <img class="thumb" src="assets/certifications/1.png" alt="Certificate image"
+                     onclick="openLightbox(this.src)"
+                     onerror="this.onerror=null;this.src='https://via.placeholder.com/320x240?text=Add+certificate';">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── LIGHTBOX ── -->
+<div id="lightbox" onclick="closeLightbox()"
+     style="display:none; position:fixed; inset:0; z-index:9999;
+            background:rgba(0,0,0,0.85); backdrop-filter:blur(6px);
+            align-items:center; justify-content:center; cursor:zoom-out;">
+    <img id="lightbox-img"
+         style="max-width:90vw; max-height:90vh; border-radius:8px;
+                box-shadow:0 8px 48px rgba(0,0,0,0.6); object-fit:contain;">
+    <button onclick="event.stopPropagation(); closeLightbox()"
+            style="position:fixed; top:20px; right:28px; background:none; border:none;
+                   color:#fff; font-size:32px; cursor:pointer; line-height:1;">✕</button>
+</div>
+
+<style>
+.thumb {
+    cursor: zoom-in;
+    width: 100%;
+    border-radius: 6px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.thumb:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+</style>
+
+<script>
+function openLightbox(src) {
+    const lb = document.getElementById('lightbox');
+    document.getElementById('lightbox-img').src = src;
+    lb.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+    document.getElementById('lightbox').style.display = 'none';
+    document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeLightbox();
+});
+</script>
     <!-- Volunteering Section -->
     <section class="volunteering" id="volunteering">
         <h2 class="section-title">Volunteering</h2>
