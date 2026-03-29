@@ -1024,7 +1024,9 @@
             <h1>Hi, I'm <span>Rania Akrout</span></h1>
             <h3> Computer Science Engineering student & AI Enthusiast</h3>
             <p>
-Computer Science Engineering student at ENISO, passionate about Artificial Intelligence and its real-world impact. I enjoy transforming Machine Learning, Deep Learning, Computer Vision, and modern NLP/LLM concepts into real-world applications, while continuously exploring new tools, research, and best practices
+                Computer Science Engineering student at ENISO, passionate about Artificial Intelligence and its real-world impact.
+                I love building with Machine Learning, Deep Learning, Computer Vision, and modern NLP/LLMs ideas into working systems,
+                and continuously learning new tools, research, and best practices along the way.
             </p>
             <div>
                 <a href="#contact" class="btn">Get In Touch</a>
@@ -1162,96 +1164,133 @@ Computer Science Engineering student at ENISO, passionate about Artificial Intel
         </div>
     </section>
 
-   <!-- Certifications Section -->
-<section class="certifications" id="certifications">
-    <h2 class="section-title">My Certifications</h2>
-    
-    <div class="cert-grid">
-        <div class="cert-card">
-            <h3>Fundamentals of Deep Learning</h3>
-            <p>Deep learning foundations: neural networks, CNNs, training workflow, and practical applications.</p>
-            <div class="cert-issuer">
-                <img src="https://via.placeholder.com/40x40?text=N" alt="NVIDIA">
-                <span>NVIDIA</span>
-            </div>
-            <div class="thumb-grid">
-                <img class="thumb" src="assets/certifications/2.png" alt="Certificate image"
-                     onclick="openLightbox(this.src)"
-                     onerror="this.onerror=null;this.src='https://via.placeholder.com/320x240?text=Add+certificate';">
-            </div>
-        </div>
+    <!-- Certifications Section -->
+    <section class="certifications" id="certifications">
+        <h2 class="section-title">My Certifications</h2>
 
-        <div class="cert-card">
-            <h3>Building Transformer-Based NLP Applications</h3>
-            <p>Transformers and modern NLP: tokenization, embeddings, attention, and deployment-ready pipelines.</p>
-            <div class="cert-issuer">
-                <img src="https://via.placeholder.com/40x40?text=N" alt="NVIDIA">
-                <span>NVIDIA</span>
-            </div>
-            <div class="thumb-grid">
-                <img class="thumb" src="assets/certifications/3.png" alt="Certificate image"
-                     onclick="openLightbox(this.src)"
-                     onerror="this.onerror=null;this.src='https://via.placeholder.com/320x240?text=Add+certificate';">
-            </div>
-        </div>
+        <style>
+            /* Override .thumb only inside cert cards: show full image, no crop */
+            .cert-card .cert-thumb {
+                width: 100%;
+                height: auto;
+                object-fit: contain;
+                border-radius: 8px;
+                border: 1px solid #eee;
+                background: #f9f9f9;
+                margin-top: 16px;
+                cursor: zoom-in;
+                display: block;
+                transition: transform 0.2s ease, box-shadow 0.2s ease;
+            }
+            .cert-card .cert-thumb:hover {
+                transform: scale(1.02);
+                box-shadow: 0 6px 24px rgba(110, 72, 170, 0.2);
+            }
 
-        <div class="cert-card">
-            <h3>Supervised Machine Learning: Regression & Classification</h3>
-            <p>Core supervised learning concepts, evaluation, overfitting/regularization, and practical modeling.</p>
-            <div class="cert-issuer">
-                <img src="https://via.placeholder.com/40x40?text=C" alt="Coursera">
-                <span>Coursera</span>
+            /* Lightbox overlay */
+            #cert-lightbox {
+                display: none;
+                position: fixed;
+                inset: 0;
+                z-index: 9999;
+                background: rgba(0, 0, 0, 0.88);
+                backdrop-filter: blur(6px);
+                align-items: center;
+                justify-content: center;
+                cursor: zoom-out;
+            }
+            #cert-lightbox.open {
+                display: flex;
+            }
+            #cert-lightbox img {
+                max-width: 90vw;
+                max-height: 90vh;
+                object-fit: contain;   /* jamais coupée */
+                border-radius: 10px;
+                box-shadow: 0 12px 60px rgba(0, 0, 0, 0.6);
+                cursor: default;
+            }
+            #cert-lightbox-close {
+                position: fixed;
+                top: 18px;
+                right: 26px;
+                background: rgba(255,255,255,0.12);
+                border: none;
+                color: #fff;
+                font-size: 1.6rem;
+                width: 44px;
+                height: 44px;
+                border-radius: 50%;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: background 0.2s;
+            }
+            #cert-lightbox-close:hover {
+                background: rgba(255,255,255,0.25);
+            }
+        </style>
+        
+        <div class="cert-grid">
+            <div class="cert-card">
+                <h3>Fundamentals of Deep Learning</h3>
+                <p>Deep learning foundations: neural networks, CNNs, training workflow, and practical applications.</p>
+                <div class="cert-issuer">
+                    <img src="https://via.placeholder.com/40x40?text=N" alt="NVIDIA">
+                    <span>NVIDIA</span>
+                </div>
+                <img class="cert-thumb" src="assets/certifications/2.png" alt="Certificate — Fundamentals of Deep Learning"
+                     onclick="openCertLightbox(this.src)"
+                     onerror="this.onerror=null;this.src='https://via.placeholder.com/600x420?text=Add+certificate';">
             </div>
-            <div class="thumb-grid">
-                <img class="thumb" src="assets/certifications/1.png" alt="Certificate image"
-                     onclick="openLightbox(this.src)"
-                     onerror="this.onerror=null;this.src='https://via.placeholder.com/320x240?text=Add+certificate';">
+
+            <div class="cert-card">
+                <h3>Building Transformer-Based NLP Applications</h3>
+                <p>Transformers and modern NLP: tokenization, embeddings, attention, and deployment-ready pipelines.</p>
+                <div class="cert-issuer">
+                    <img src="https://via.placeholder.com/40x40?text=N" alt="NVIDIA">
+                    <span>NVIDIA</span>
+                </div>
+                <img class="cert-thumb" src="assets/certifications/3.png" alt="Certificate — Building Transformer-Based NLP Applications"
+                     onclick="openCertLightbox(this.src)"
+                     onerror="this.onerror=null;this.src='https://via.placeholder.com/600x420?text=Add+certificate';">
+            </div>
+
+            <div class="cert-card">
+                <h3>Supervised Machine Learning: Regression & Classification</h3>
+                <p>Core supervised learning concepts, evaluation, overfitting/regularization, and practical modeling.</p>
+                <div class="cert-issuer">
+                    <img src="https://via.placeholder.com/40x40?text=C" alt="Coursera">
+                    <span>Coursera</span>
+                </div>
+                <img class="cert-thumb" src="assets/certifications/1.png" alt="Certificate — Supervised Machine Learning"
+                     onclick="openCertLightbox(this.src)"
+                     onerror="this.onerror=null;this.src='https://via.placeholder.com/600x420?text=Add+certificate';">
             </div>
         </div>
+    </section>
+
+    <!-- Cert Lightbox -->
+    <div id="cert-lightbox" onclick="closeCertLightbox()">
+        <button id="cert-lightbox-close" onclick="event.stopPropagation(); closeCertLightbox()">✕</button>
+        <img id="cert-lightbox-img" src="" alt="Certificate" onclick="event.stopPropagation()">
     </div>
-</section>
+    <script>
+        function openCertLightbox(src) {
+            document.getElementById('cert-lightbox-img').src = src;
+            document.getElementById('cert-lightbox').classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeCertLightbox() {
+            document.getElementById('cert-lightbox').classList.remove('open');
+            document.body.style.overflow = '';
+        }
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeCertLightbox();
+        });
+    </script>
 
-<!-- ── LIGHTBOX ── -->
-<div id="lightbox" onclick="closeLightbox()"
-     style="display:none; position:fixed; inset:0; z-index:9999;
-            background:rgba(0,0,0,0.85); backdrop-filter:blur(6px);
-            align-items:center; justify-content:center; cursor:zoom-out;">
-    <img id="lightbox-img"
-         style="max-width:90vw; max-height:90vh; border-radius:8px;
-                box-shadow:0 8px 48px rgba(0,0,0,0.6); object-fit:contain;">
-    <button onclick="event.stopPropagation(); closeLightbox()"
-            style="position:fixed; top:20px; right:28px; background:none; border:none;
-                   color:#fff; font-size:32px; cursor:pointer; line-height:1;">✕</button>
-</div>
-
-<style>
-.thumb {
-    cursor: zoom-in;
-    width: 100%;
-    border-radius: 6px;
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-.thumb:hover {
-    transform: scale(1.02);
-    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-}
-</style>
-
-<script>
-function openLightbox(src) {
-    const lb = document.getElementById('lightbox');
-    document.getElementById('lightbox-img').src = src;
-    lb.style.display = 'flex';
-    document.body.style.overflow = 'hidden';
-}
-function closeLightbox() {
-    document.getElementById('lightbox').style.display = 'none';
-    document.body.style.overflow = '';
-}
-document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') closeLightbox();
-});
-</script>
     <!-- Volunteering Section -->
     <section class="volunteering" id="volunteering">
         <h2 class="section-title">Volunteering</h2>
@@ -1399,11 +1438,11 @@ document.addEventListener('keydown', e => {
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
-                        <span>rania.akrout@eniso.u-sousse.tn</span>
+                        <span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="82f0e3ecebe3ace3e9f0edf7f6c2e7ecebf1edacf7aff1edf7f1f1e7acf6ec">[email&#160;protected]</a></span>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
-                        <span>raniaakrout@ieee.org</span>
+                        <span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="7002111e1911111b021f050430191515155e1f0217">[email&#160;protected]</a></span>
                     </div>
                     <div class="contact-item">
                         <i class="fab fa-linkedin-in"></i>
@@ -1453,7 +1492,7 @@ document.addEventListener('keydown', e => {
                 <a class="social-link" href="https://github.com/repos" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                     <i class="fab fa-github"></i>
                 </a>
-                <a class="social-link" href="mailto:rania.akrout@eniso.u-sousse.tn" aria-label="Email">
+                <a class="social-link" href="/cdn-cgi/l/email-protection#ed9f8c83848cc38c869f829899ad8883849e82c398c09e82989e9e88c39983" aria-label="Email">
                     <i class="fas fa-envelope"></i>
                 </a>
             </div>
@@ -1478,15 +1517,4 @@ document.addEventListener('keydown', e => {
             <div class="media-modal-header">
                 <div class="media-modal-title" id="media-modal-title">Demo</div>
                 <button class="media-modal-close" id="media-modal-close" aria-label="Close">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div class="media-modal-body">
-                <video id="media-modal-video" controls preload="metadata"></video>
-            </div>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
-</body>
-</html>
+          
