@@ -832,194 +832,87 @@
             }
         }
         
-        /* ── CV Dropdown ── */
-        .cv-dropdown {
-            display: inline-block;
-            position: relative;
-            margin-left: 20px;
-        }
-        .cv-toggle {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: transparent;
-            color: var(--primary);
-            border: 2px solid var(--primary);
-            cursor: pointer;
-            font-family: inherit;
-            opacity: 1;
-            animation: fadeIn 1s ease 0.9s forwards;
-        }
-        .cv-toggle:hover {
-            background: var(--primary);
-            color: var(--light);
-        }
-        .cv-arrow {
-            font-size: 0.75rem;
-            transition: transform 0.2s;
-        }
-        .cv-dropdown.open .cv-arrow {
-            transform: rotate(180deg);
-        }
-        .cv-menu {
-            display: none;
-            position: absolute;
-            top: calc(100% + 8px);
-            left: 50%;
-            transform: translateX(-50%);
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 12px 40px rgba(110,72,170,0.18);
-            border: 1px solid rgba(110,72,170,0.12);
-            overflow: hidden;
-            min-width: 220px;
-            z-index: 200;
-        }
-        .cv-dropdown.open .cv-menu {
-            display: block;
-            animation: fadeIn 0.2s ease;
-        }
-        .cv-option {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 14px 18px;
-            text-decoration: none;
-            color: var(--dark);
-            transition: background 0.2s;
-            border-bottom: 1px solid #f0f0f0;
-        }
-        .cv-option:last-child { border-bottom: none; }
-        .cv-option:hover {
-            background: rgba(110,72,170,0.07);
-            color: var(--primary);
-        }
-        .cv-flag { font-size: 1.4rem; }
-        .cv-option-text { flex: 1; display: flex; flex-direction: column; line-height: 1.3; }
-        .cv-option-text strong { font-size: 0.95rem; }
-        .cv-option-text small { font-size: 0.72rem; color: #999; }
-        .cv-dl-icon { color: var(--primary); font-size: 0.85rem; opacity: 0.6; }
-
-        /* ── Hamburger menu ── */
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            cursor: pointer;
-            background: none;
-            border: none;
-            padding: 4px;
-            z-index: 200;
-        }
-        .hamburger span {
-            display: block;
-            width: 26px;
-            height: 2px;
-            background: var(--dark);
-            border-radius: 2px;
-            transition: all 0.3s ease;
-        }
-        .hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-        .hamburger.active span:nth-child(2) { opacity: 0; }
-        .hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-        /* ── RESPONSIVE ── */
         @media (max-width: 1200px) {
-            .hero-img { width: 400px; height: 400px; }
+            .hero-img {
+                width: 400px;
+                height: 400px;
+            }
         }
-
+        
         @media (max-width: 992px) {
-            nav {
-                position: fixed;
-                top: 0; right: -100%;
-                width: min(300px, 80vw);
-                height: 100vh;
-                background: white;
-                flex-direction: column;
-                align-items: flex-start;
-                justify-content: center;
-                padding: 80px 40px 40px;
-                box-shadow: -4px 0 30px rgba(0,0,0,0.12);
-                transition: right 0.35s ease;
-                z-index: 150;
-                display: flex;
-                gap: 0;
-            }
-            nav.nav-open { right: 0; }
-            nav a {
-                margin-left: 0;
-                font-size: 1.2rem;
-                padding: 14px 0;
-                border-bottom: 1px solid #f0f0f0;
-                width: 100%;
-            }
-            nav a:last-child { border-bottom: none; }
-            .hamburger { display: flex; }
-
-            /* Overlay behind nav */
-            .nav-overlay {
-                display: none;
-                position: fixed;
-                inset: 0;
-                background: rgba(0,0,0,0.35);
-                z-index: 140;
-            }
-            .nav-overlay.show { display: block; }
-
             .hero-img {
                 position: relative;
                 right: auto;
-                margin: 40px auto 0;
-                width: 280px;
-                height: 280px;
+                margin: 50px auto 0;
+                width: 300px;
+                height: 300px;
             }
+            
             .hero {
                 flex-direction: column;
                 text-align: center;
-                padding-top: 120px;
-                padding-bottom: 80px;
+                padding-top: 150px;
+                padding-bottom: 100px;
             }
-            .hero-content { max-width: 100%; }
-            .hero-content h1 { font-size: 2.8rem; }
-            .hero-content h3 { font-size: 1.5rem; }
-
-            /* CV dropdown centered on mobile */
-            .cv-dropdown { margin-left: 10px; }
-            .cv-menu { left: auto; right: 0; transform: none; }
-
-            .cert-grid { grid-template-columns: 1fr 1fr; }
-            .internship-grid,
-            .projects-grid,
-            .volunteering-grid { grid-template-columns: 1fr; }
+            
+            .hero-content {
+                max-width: 100%;
+            }
+            
+            nav a {
+                margin-left: 2rem;
+            }
         }
-
+        
         @media (max-width: 768px) {
-            header { padding: 14px 5%; }
-            section { padding: 70px 6%; }
-            .section-title { font-size: 2rem; }
-            .hero-content h1 { font-size: 2.2rem; }
-            .hero-content h3 { font-size: 1.3rem; }
-            .hero-content p { font-size: 1rem; }
-            .about-content { flex-direction: column; }
-            .about-img, .about-text { min-width: unset; width: 100%; padding: 16px 0; }
-            .cert-grid { grid-template-columns: 1fr; }
-            .contact-container { flex-direction: column; }
-            .contact-info, .contact-form { min-width: unset; width: 100%; padding: 16px 0; }
-            .thumb-grid { grid-template-columns: repeat(2, 1fr); }
+            header {
+                padding: 15px 5%;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-content h3 {
+                font-size: 1.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            nav a {
+                margin-left: 1.5rem;
+                font-size: 1rem;
+            }
         }
-
+        
         @media (max-width: 576px) {
-            .hero-img { width: 220px; height: 220px; }
-            .hero-content h1 { font-size: 1.8rem; }
-            .hero-content h3 { font-size: 1.1rem; }
-            .btn { padding: 10px 18px; font-size: 0.9rem; }
-            .cv-dropdown { margin-left: 8px; }
-            .cv-toggle { padding: 10px 14px; font-size: 0.85rem; }
-            .thumb-grid { grid-template-columns: 1fr 1fr; }
-            .hero > div:first-child { flex-direction: column; }
-            nav a { font-size: 1.1rem; }
-            footer { padding: 40px 5% 20px; }
-            .footer-links { gap: 12px; font-size: 0.9rem; }
+            .hero-img {
+                width: 250px;
+                height: 250px;
+            }
+            
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-content h3 {
+                font-size: 1.2rem;
+            }
+            
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+            
+            .projects-grid, .volunteering-grid, .internship-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            nav a {
+                margin-left: 1rem;
+            }
         }
 
         /* Media modal + image grids */
@@ -1110,25 +1003,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Nav overlay (mobile) -->
-    <div class="nav-overlay" id="nav-overlay" onclick="closeNav()"></div>
-
     <!-- Header -->
     <header>
         <a href="#" class="logo">RANIA <span>AKROUT</span></a>
-        <nav id="main-nav">
-            <a href="#home"           onclick="closeNav()">Home</a>
-            <a href="#about"          onclick="closeNav()">About</a>
-            <a href="#internships"    onclick="closeNav()">Internships</a>
-            <a href="#projects"       onclick="closeNav()">Projects</a>
-            <a href="#certifications" onclick="closeNav()">Certifications</a>
-            <a href="#volunteering"   onclick="closeNav()">Volunteering</a>
-            <a href="#hackathons"     onclick="closeNav()">Competitions</a>
-            <a href="#contact"        onclick="closeNav()">Contact</a>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#internships">Internships</a>
+            <a href="#projects">Projects</a>
+            <a href="#certifications">Certifications</a>
+            <a href="#volunteering">Volunteering</a>
+            <a href="#hackathons">Competitions</a>
+            <a href="#contact">Contact</a>
         </nav>
-        <button class="hamburger" id="hamburger" onclick="toggleNav()" aria-label="Toggle menu">
-            <span></span><span></span><span></span>
-        </button>
     </header>
 
     <!-- Hero Section -->
@@ -1143,29 +1030,7 @@
             </p>
             <div>
                 <a href="#contact" class="btn">Get In Touch</a>
-                <div class="cv-dropdown" id="cv-dropdown">
-                    <button class="btn btn-download cv-toggle" onclick="toggleCVMenu(event)" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-download"></i> Download CV <i class="fas fa-chevron-down cv-arrow"></i>
-                    </button>
-                    <div class="cv-menu" id="cv-menu" role="menu">
-                        <a href="resume_v6_eng.pdf" download class="cv-option" role="menuitem">
-                            <span class="cv-flag"></span>
-                            <div class="cv-option-text">
-                                <strong>English</strong>
-                                <small></small>
-                            </div>
-                            <i class="fas fa-download cv-dl-icon"></i>
-                        </a>
-                        <a href="Rania_cv_v6_fr.pdf" download class="cv-option" role="menuitem">
-                            <span class="cv-flag"></span>
-                            <div class="cv-option-text">
-                                <strong>Français</strong>
-                                <small></small>
-                            </div>
-                            <i class="fas fa-download cv-dl-icon"></i>
-                        </a>
-                    </div>
-                </div>
+                <a href="assets/cv5.pdf" class="btn btn-download" id="download-cv" download>Download CV</a>
             </div>
         </div>
         <div class="hero-img">
@@ -1302,36 +1167,111 @@
     <!-- Certifications Section -->
     <section class="certifications" id="certifications">
         <h2 class="section-title">My Certifications</h2>
-        
+
+        <style>
+            .cert-img {
+                width: 100%;
+                height: auto;
+                object-fit: contain;
+                border-radius: 8px;
+                border: 1px solid #e8e0f0;
+                background: #fff;
+                margin-top: 16px;
+                display: block;
+                cursor: zoom-in;
+                transition: transform 0.2s ease, box-shadow 0.2s ease;
+            }
+            .cert-img:hover {
+                transform: scale(1.02);
+                box-shadow: 0 6px 24px rgba(110, 72, 170, 0.18);
+            }
+            #cert-lightbox {
+                display: none;
+                position: fixed;
+                inset: 0;
+                z-index: 9999;
+                background: rgba(0,0,0,0.88);
+                backdrop-filter: blur(6px);
+                align-items: center;
+                justify-content: center;
+                cursor: zoom-out;
+            }
+            #cert-lightbox.open { display: flex; }
+            #cert-lightbox img {
+                max-width: 90vw;
+                max-height: 90vh;
+                object-fit: contain;
+                border-radius: 10px;
+                box-shadow: 0 12px 60px rgba(0,0,0,0.5);
+                cursor: default;
+            }
+            #cert-lightbox-close {
+                position: fixed;
+                top: 18px; right: 26px;
+                background: rgba(255,255,255,0.15);
+                border: none; color: #fff;
+                font-size: 1.6rem;
+                width: 44px; height: 44px;
+                border-radius: 50%;
+                cursor: pointer;
+                display: flex; align-items: center; justify-content: center;
+                transition: background 0.2s;
+            }
+            #cert-lightbox-close:hover { background: rgba(255,255,255,0.28); }
+        </style>
+
         <div class="cert-grid">
             <div class="cert-card">
                 <h3>Fundamentals of Deep Learning</h3>
                 <p>Deep learning foundations: neural networks, CNNs, training workflow, and practical applications.</p>
-
-                <div class="thumb-grid">
-                    <img class="thumb" src="assets/certifications/2.png" alt="Certificate image" onerror="this.onerror=null;this.src='https://via.placeholder.com/320x240?text=Add+certificate';">
-                </div>
+                <img class="cert-img"
+                     src="assets/certifications/2.png"
+                     alt="Certificate — Fundamentals of Deep Learning"
+                     onclick="openCertLightbox(this.src)"
+                     onerror="this.style.display='none'">
             </div>
 
             <div class="cert-card">
                 <h3>Building Transformer-Based NLP Applications</h3>
                 <p>Transformers and modern NLP: tokenization, embeddings, attention, and deployment-ready pipelines.</p>
-                
-                <div class="thumb-grid">
-                    <img class="thumb" src="assets/certifications/3.png" alt="Certificate image" onerror="this.onerror=null;this.src='https://via.placeholder.com/320x240?text=Add+certificate';">
-                </div>
+                <img class="cert-img"
+                     src="assets/certifications/3.png"
+                     alt="Certificate — Building Transformer-Based NLP Applications"
+                     onclick="openCertLightbox(this.src)"
+                     onerror="this.style.display='none'">
             </div>
 
             <div class="cert-card">
                 <h3>Supervised Machine Learning: Regression & Classification</h3>
                 <p>Core supervised learning concepts, evaluation, overfitting/regularization, and practical modeling.</p>
-               
-                <div class="thumb-grid">
-                    <img class="thumb" src="assets/certifications/1.png" alt="Certificate image" onerror="this.onerror=null;this.src='https://via.placeholder.com/320x240?text=Add+certificate';">
-                </div>
+                <img class="cert-img"
+                     src="assets/certifications/1.png"
+                     alt="Certificate — Supervised Machine Learning"
+                     onclick="openCertLightbox(this.src)"
+                     onerror="this.style.display='none'">
             </div>
         </div>
     </section>
+
+    <!-- Cert Lightbox -->
+    <div id="cert-lightbox" onclick="closeCertLightbox()">
+        <button id="cert-lightbox-close" onclick="event.stopPropagation();closeCertLightbox()">✕</button>
+        <img id="cert-lightbox-img" src="" alt="Certificate" onclick="event.stopPropagation()">
+    </div>
+    <script>
+        function openCertLightbox(src) {
+            document.getElementById('cert-lightbox-img').src = src;
+            document.getElementById('cert-lightbox').classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeCertLightbox() {
+            document.getElementById('cert-lightbox').classList.remove('open');
+            document.body.style.overflow = '';
+        }
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeCertLightbox();
+        });
+    </script>
 
     <!-- Volunteering Section -->
     <section class="volunteering" id="volunteering">
@@ -1569,36 +1509,5 @@
     </div>
 
     <script src="script.js"></script>
-    <script>
-        /* ── Hamburger nav ── */
-        function toggleNav() {
-            const nav = document.getElementById('main-nav');
-            const hbg = document.getElementById('hamburger');
-            const ovl = document.getElementById('nav-overlay');
-            nav.classList.toggle('nav-open');
-            hbg.classList.toggle('active');
-            ovl.classList.toggle('show');
-            document.body.style.overflow = nav.classList.contains('nav-open') ? 'hidden' : '';
-        }
-        function closeNav() {
-            document.getElementById('main-nav').classList.remove('nav-open');
-            document.getElementById('hamburger').classList.remove('active');
-            document.getElementById('nav-overlay').classList.remove('show');
-            document.body.style.overflow = '';
-        }
-
-        /* ── CV dropdown ── */
-        function toggleCVMenu(e) {
-            e.stopPropagation();
-            const dd = document.getElementById('cv-dropdown');
-            dd.classList.toggle('open');
-        }
-        document.addEventListener('click', function() {
-            document.getElementById('cv-dropdown').classList.remove('open');
-        });
-        document.getElementById('cv-dropdown').addEventListener('click', function(e) {
-            e.stopPropagation();
-        });
-    </script>
 </body>
 </html>
